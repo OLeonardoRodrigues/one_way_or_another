@@ -39,7 +39,7 @@ defmodule OneWayOrAnother do
   end
 
   def linear(valuesList, value), do: linear(valuesList, value, 0, false)
-  defp linear(_valuesList, _value, index, true), do: {true, index-1}
+  defp linear(_valuesList, _value, index, found) when found, do: {found, index-1}
   defp linear(valuesList, value, index, _found) do
       if index < Enum.count(valuesList) do
           found = Enum.at(valuesList, index)==value
